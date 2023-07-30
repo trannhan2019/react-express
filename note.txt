@@ -1,0 +1,2 @@
+29/07/2023 da xong auth login, register voi passport js local va jwt o server
+30/07/2023 da xong auth:login,register, forgot, reset password
