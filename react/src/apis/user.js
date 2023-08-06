@@ -35,3 +35,9 @@ export const apiRefresh = () =>
     method: "get",
     withCredentials: true,
   });
+
+export const apiGetCurrent = () =>
+  axiosClient({
+    url: "/user/current",
+    method: "get",
+  });

@@ -1,12 +1,17 @@
 const asyncHandler = require("express-async-handler");
+const User = require("../models/users.model");
 
-const getUserProfile = asyncHandler(async (req, res) => {
-  console.log(req.user);
-  return res.json("done");
+const getCurrent = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  const user = await User.findById(_id).select("-refreshToken -password");
+  return res.status(200).json({
+    status: user ? true : false,
+    rs: user ? user : "User not found",
+  });
 });
 
 const userController = {
-  getUserProfile,
+  getCurrent,
 };
 
 module.exports = userController;

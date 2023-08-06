@@ -4,10 +4,15 @@ const passport = require("../middlewares/passport");
 
 const userController = require("../controllers/users.controller");
 
+// router.get(
+//   "/profile",
+//   passport.authenticate("jwt", { session: false }),
+//   userController.getUserProfile
+// );
 router.get(
-  "/profile",
+  "/current",
   passport.authenticate("jwt", { session: false }),
-  userController.getUserProfile
+  userController.getCurrent
 );
 
 module.exports = router;

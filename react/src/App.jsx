@@ -9,12 +9,15 @@ import Register from "./pages/public/Register";
 import ForgotPassword from "./pages/public/ForgotPassword";
 import Home from "./pages/public/Home";
 import ResetPassword from "./pages/public/ResetPassword";
+import Public from "./pages/public/Public";
 
 function App() {
   return (
     <div className="font-main relative">
       <Routes>
-        <Route path={path.HOME} element={<Home />} />
+        <Route path={path.PUBLIC} element={<Public />}>
+          <Route path={path.HOME} element={<Home />} />
+        </Route>
         <Route
           path={path.REGISTER}
           element={
