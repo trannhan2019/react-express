@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import appSlice from "./app/appSlice";
-// import productSlice from './products/productSlice';
+import productSlice from "./products/productSlice";
 import userSlice from "./user/userSlice";
 import storage from "redux-persist/lib/storage";
 import {
@@ -26,7 +26,7 @@ const userConfig = {
 export const store = configureStore({
   reducer: {
     app: appSlice,
-    // products: productSlice,
+    products: productSlice,
     user: persistReducer(userConfig, userSlice),
   },
   middleware: (getDefaultMiddleware) =>

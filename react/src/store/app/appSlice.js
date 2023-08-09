@@ -4,7 +4,7 @@ import * as actions from "./asyncActions";
 export const appSlice = createSlice({
   name: "app",
   initialState: {
-    categories: [],
+    categories: null,
     isLoading: false,
     isShowModal: false,
     modalChildren: null,
@@ -25,7 +25,7 @@ export const appSlice = createSlice({
     });
     builder.addCase(actions.getCategories.rejected, (state, action) => {
       state.isLoading = false;
-      // state.errorMessage = action.payload.message;
+      state.errorMessage = action.payload.message;
     });
   },
 });
