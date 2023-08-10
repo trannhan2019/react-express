@@ -10,6 +10,10 @@ import ForgotPassword from "./pages/public/ForgotPassword";
 import Home from "./pages/public/Home";
 import ResetPassword from "./pages/public/ResetPassword";
 import Public from "./pages/public/Public";
+import Products from "./pages/public/Products";
+import Blogs from "./pages/public/Blogs";
+import Services from "./pages/public/Services";
+import FAQ from "./pages/public/FAQ";
 import { useDispatch } from "react-redux";
 import { getCategories } from "./store/app/asyncActions";
 
@@ -23,6 +27,10 @@ function App() {
       <Routes>
         <Route path={path.PUBLIC} element={<Public />}>
           <Route path={path.HOME} element={<Home />} />
+          <Route path={path.PRODUCTS} element={<Products />} />
+          <Route path={path.BLOGS} element={<Blogs />} />
+          <Route path={path.OUR_SERVICES} element={<Services />} />
+          <Route path={path.FAQ} element={<FAQ />} />
         </Route>
         <Route
           path={path.REGISTER}
