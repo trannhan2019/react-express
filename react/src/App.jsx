@@ -11,26 +11,35 @@ import Home from "./pages/public/Home";
 import ResetPassword from "./pages/public/ResetPassword";
 import Public from "./pages/public/Public";
 import Products from "./pages/public/Products";
+import DetailProduct from "./pages/public/DetailProduct";
 import Blogs from "./pages/public/Blogs";
 import Services from "./pages/public/Services";
 import FAQ from "./pages/public/FAQ";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "./store/app/asyncActions";
+import Modal from "./components/common/Modal";
 
 function App() {
   const dispatch = useDispatch();
+  const { isShowModal, modalChildren } = useSelector((state) => state.app);
   useEffect(() => {
     dispatch(getCategories());
   }, []);
   return (
-    <div className="font-main relative">
+    <div className="font-main h-screen relative">
+      {isShowModal && <Modal>{modalChildren}</Modal>}
       <Routes>
         <Route path={path.PUBLIC} element={<Public />}>
           <Route path={path.HOME} element={<Home />} />
           <Route path={path.PRODUCTS} element={<Products />} />
+          <Route
+            path={path.DETAIL_PRODUCT__CATEGORY__PID__TITLE}
+            element={<DetailProduct />}
+          />
           <Route path={path.BLOGS} element={<Blogs />} />
           <Route path={path.OUR_SERVICES} element={<Services />} />
           <Route path={path.FAQ} element={<FAQ />} />
+          <Route path={path.ALL} element={<Home />} />
         </Route>
         <Route
           path={path.REGISTER}

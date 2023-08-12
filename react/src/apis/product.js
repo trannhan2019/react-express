@@ -6,3 +6,14 @@ export const apiGetProducts = (params) =>
     method: "get",
     params,
   });
+export const apiGetProduct = (pid) =>
+  axiosClient({
+    url: "/product/" + pid,
+    method: "get",
+  });
+export const apiRatings = (data) =>
+  axiosClient({
+    url: "/product/ratings",
+    method: "put",
+    data,
+  });
